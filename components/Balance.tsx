@@ -28,8 +28,8 @@ export default function Balance() {
   return (
     <TextInput
       size="lg"
-      error={error}
-      value={ethers.utils.formatUnits(data)} 
+      error={error as any}
+      value={ethers.utils.formatUnits(`${data || 0}`)} 
       disabled 
     />
   );

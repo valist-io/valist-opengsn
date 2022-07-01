@@ -5,7 +5,7 @@ import { ethers } from 'ethers';
 import Balance from './Balance';
 
 export default function Form() {
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(2);
 
   const { sendTransaction, error, isLoading } =
     useSendTransaction({
@@ -15,7 +15,7 @@ export default function Form() {
       },
     });
 
-  const submit = (event) => {
+  const submit = (event: any) => {
     sendTransaction();
     event.preventDefault();
   };
@@ -28,14 +28,14 @@ export default function Form() {
         </InputWrapper>
         <InputWrapper label="Deposit Amount">
           <NumberInput
-            max={1}
+            max={2}
             min={0.01}
             step={0.01}
             size="lg"
             precision={2}
             value={amount} 
-            onChange={setAmount} 
-            error={error?.data?.message}
+            onChange={setAmount as any} 
+            error={(error as any)?.data?.message}
             disabled={isLoading} />
         </InputWrapper>
         <Button 
